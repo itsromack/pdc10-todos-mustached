@@ -2,6 +2,20 @@
 
 include "init.php";
 
-$task = new Todo('Clean the house');
+use App\Todo;
+
+if (!isset($_POST['task'])) {
+	exit('Invalid request');
+}
+
+$task_description = $_POST['task'];
+
+$task = new Todo($task_description);
 $task->setConnection($connection);
-$task->save();
+$result = $task->save();
+
+if (!is_null($result)) {
+	header('Location: list-records.php');
+} else {
+	exit('Something went wrong, please contact your administrator');
+}
