@@ -49,11 +49,12 @@ class Todo
 		try {
 			$sql = "INSERT INTO todos SET task=:task, is_completed=:is_completed";
 			$statement = $this->connection->prepare($sql);
-
-			return $statement->execute([
+			$statement->execute([
 				':task' => $this->getTask(),
 				':is_completed' => $this->isCompleted()
 			]);
+			$this->id = $this->connection->lastInsertId();
+			return $this;
 
 		} catch (Exception $e) {
 			error_log($e->getMessage());

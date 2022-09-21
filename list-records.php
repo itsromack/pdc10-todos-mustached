@@ -2,10 +2,15 @@
 
 include "init.php";
 
+use App\Todo;
+
 $task = new Todo('');
 $task->setConnection($connection);
 $todos = $task->getAll();
 
-foreach ($todos as $item) {
-	echo $item['task'] . ' is_completed=' . $item['is_completed'] . "\n";
-}
+// One-liner to display content
+// echo $mustache->render('list', compact('todos'));
+
+// Another way
+$template = $mustache->loadTemplate('list');
+echo $template->render(compact('todos'));
