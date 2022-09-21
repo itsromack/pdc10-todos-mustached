@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Edit a To Do Record</title>
+</head>
+<body>
+
+<h1>Edit a To do Record</h1>
+
+<form method="POST" action="update-record.php">
+<input type="hidden" name="id" value="{{ todo.id }}" />
+Enter a task:
+<input type="text" name="task" size="50" placeholder="Do something good..." value="{{ todo.task }}" />
+
+<hr />
+
+<input type="submit" value="Save Changes" /> <a href="list-records.php">Cancel</a>
+
+</form>
+
+</body>
+</html>

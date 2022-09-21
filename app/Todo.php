@@ -5,10 +5,10 @@ use \PDO;
 
 class Todo
 {
-	protected $id;
-	protected $task;
-	protected $is_completed;
-	protected $completed_at;
+	public $id;
+	public $task;
+	public $is_completed;
+	public $completed_at;
 
 	// Database Connection Object
 	protected $connection;
