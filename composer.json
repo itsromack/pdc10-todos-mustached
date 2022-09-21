@@ -11,5 +11,7 @@
             "email": "romacknatividad@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "mustache/mustache": "^2.14"
+    }
 }
